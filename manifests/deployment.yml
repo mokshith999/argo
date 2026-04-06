@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my_nginx
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: my_nginx
+    spec:
+      containers:
+        - name: nginx
+          image: harshajain/ip_app:2
+          ports:
+          - containerPort: 80
+~
